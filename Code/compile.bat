@@ -6,4 +6,5 @@ pyinstaller ./main.py --onefile --hidden-import="pynput.keyboard._win32" ^
 --add-data "./Instructions.txt;." ^
 --hidden-import "./Handler.py"
 
-copy .\dist\Remote_Keyboard.exe C:\Users\alanv\PycharmProjects\Original\Executable /Y
+cd..
+copy .\Code\dist\Remote_Keyboard.exe .\Executable /Y
