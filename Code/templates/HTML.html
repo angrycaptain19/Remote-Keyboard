@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>HTML</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+    <div class="flex" style="top: 20px;">
+        <button id="exit" onclick=myFunc(exit_input)>Exit</button>
+        <input id="input" placeholder="Texto a enviar..." autofocus type="text">
+        <button id="Send" onclick=myFunc(go_string)>Send</button>
+    </div>
+    <div class="flex" style="top: 50px;">
+        <button class="botoncito" id="Esc" onclick=myFunc(esc)>Esc</button>
+        <button class="botoncito" id="Enter" onclick=myFunc(enter)>Enter</button>
+        <button class="botoncito" id="Back" onclick=myFunc(back)>Back</button>
+        <button class="botoncito" id="Supr" onclick=myFunc(supr)>Supr</button>
+    </div>
+    <div class="flex" style="top: 111.33px;">
+        <button class="botoncito" id="Ctrl" onclick=myFunc(ctrl)>Ctrl</button>
+        <button class="botoncito" id="Alt" onclick=myFunc(alt)>Alt</button>
+        <button class="botoncito" id="Shift" onclick=myFunc(shft)>Shift</button>
+    </div>
+    <button class="botoncito flechita" id="Up" onclick=myFunc(up)>>></button>
+    <button class="botoncito flechita" id="Right" onclick=myFunc(right)>>></button>
+    <button class="botoncito flechita" id="Down" onclick=myFunc(down)>>></button>
+    <button class="botoncito flechita" id="Left" onclick=myFunc(left)>>></button>
+    <button class="" id="barra" onclick=myFunc(space)>Space</button>
+</body>
+
+<script type="text/javascript" src="./js/script.js"></script>
+
+</html>
