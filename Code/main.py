@@ -1,6 +1,9 @@
+# Networking
 from http.server import HTTPServer
-from Handler import RHandler, update_ip, resource_path
 from socket import gethostname, gethostbyname
+
+# Handler
+from Handler import RHandler, update_ip, resource_path
 
 def print_instructions():
     with open (resource_path(".\\Instructions.txt"), 'rb') as file: text = file.read()
