@@ -15,22 +15,22 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
-def update_html(cls):
+def update_ip(cls):
     with open(resource_path('.\\templates\\js\\script.js'), 'rt') as file: data = file.read()
 
     data = data.replace(data[data.find('const ip =') : data.find('const ip =') + 39], f"const ip = 'http://{cls.IP}:8000/'; ")
-    with open(resource_path('.\\templates\\js\\script.js'), 'wt') as file:
-        file.write(data)
-        # RHandler.file = data
+    with open(resource_path('.\\templates\\js\\script.js'), 'wt') as file: file.write(data)
 
 controller = keyboard.Controller()
 class RHandler(BaseHTTPRequestHandler):
 
     running = True
     wordout = 'CodeEscape_Exit'
-    html = ''
-    js = ''
-    css = ''
+    files = {
+        'html' : '',
+        'js' : '',
+        'css' : ''
+    }
 
     special = {
         'ctrl': keyboard.Key.ctrl,
@@ -59,11 +59,11 @@ class RHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_response()
 
-        if self.req_file(posible = ['/', '/HTML.html', ], variable = self.html, location = 'HTML.html'): pass
+        if self.req_file(posible = ['/', '/HTML.html', ], variable = 'html', location = 'HTML.html'): pass
 
-        elif self.req_file(posible = ['/css/style.css'], variable = self.css, location = 'css\\style.css'): pass
+        elif self.req_file(posible = ['/css/style.css'], variable = 'css', location = 'css\\style.css'): pass
 
-        elif self.req_file(posible = ['/js/script.js'], variable = self.js, location = 'js\\script.js'): pass
+        elif self.req_file(posible = ['/js/script.js'], variable = 'js', location = 'js\\script.js'): pass
 
         elif "keyboard.Key" in self.path:
             pos = self.path.rfind('?')
@@ -82,15 +82,15 @@ class RHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-    def req_file(self, posible, variable, location):
+    def req_file(self, posible : [list[str], tuple[str]], variable : str, location : str):
         if self.path in posible:
-            if not len(variable):
-                with open(resource_path(f'.\\templates\\{location}'), 'rt') as file: variable = file.read()
-            self.wfile.write(variable.encode('utf-8'))
+            if not len(self.files[variable]):
+                with open(resource_path(f'.\\templates\\{location}'), 'rt') as file: self.files[variable] = file.read()
+            self.wfile.write(self.files[variable].encode('utf-8'))
             return True
         return False
 
-    def special_key(self, pos, maybe_special):
+    def special_key(self, pos : int, maybe_special : str):
         try: key_letter = keyboard.KeyCode(char=self.path[pos + 1].lower())
         except IndexError: key_letter = False
 
@@ -102,7 +102,7 @@ class RHandler(BaseHTTPRequestHandler):
         if key_letter: controller.release(key_letter)
 
 
-    def repeat_key(self, pos):
+    def repeat_key(self, pos : int):
         try: tot = int(self.path[pos + 1:])
         except ValueError: tot = 1
 

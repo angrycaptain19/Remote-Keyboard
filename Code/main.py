@@ -1,10 +1,10 @@
 from http.server import HTTPServer
-from Handler import RHandler, update_html, resource_path
+from Handler import RHandler, update_ip, resource_path
 from socket import gethostname, gethostbyname
 
 myIP = gethostbyname(gethostname())
 RHandler.IP = myIP
-update_html(RHandler)
+update_ip(RHandler)
 
 def print_instructions():
     with open (resource_path(".\\Instructions.txt"), 'rb') as file: text = file.read()
@@ -17,4 +17,3 @@ if __name__ == '__main__':
 
     while RHandler.running: server.handle_request()
     server.server_close()
-
