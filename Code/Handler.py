@@ -4,6 +4,8 @@ from urllib.parse import unquote
 import sys
 import os
 
+KEYWORD_KEY = 'keyboard.Key.'
+
 def resource_path(relative_path):
     """ Get absolute path to resource, works for dev and for PyInstaller """
     try:
@@ -65,10 +67,10 @@ class RHandler(BaseHTTPRequestHandler):
 
         elif self.req_file(posible = ['/js/script.js'], variable = 'js', location = 'js\\script.js'): pass
 
-        elif "keyboard.Key" in self.path:
+        elif KEYWORD_KEY in self.path:
             pos = self.path.rfind('?')
 
-            maybe_special = self.path[self.path.find('keyboard.Key') + 13 : pos]
+            maybe_special = self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
 
             if maybe_special in self.special: self.special_key(pos = pos, maybe_special = maybe_special)
 
@@ -106,7 +108,7 @@ class RHandler(BaseHTTPRequestHandler):
         try: tot = int(self.path[pos + 1:])
         except ValueError: tot = 1
 
-        key_name = self.path[self.path.find('keyboard.Key') + 13 : pos]
+        key_name = self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
 
         for i in range(tot): controller.tap(self.repeat[key_name])
 

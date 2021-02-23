@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c67452a0-d3b0-4c91-b5e5-447f29ce8df3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Remote_Keyboard.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/compile.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Code/compile.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/templates/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Code/templates/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Executable/Remote_Keyboard.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Executable/Remote_Keyboard.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
