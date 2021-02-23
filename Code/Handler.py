@@ -158,7 +158,7 @@ class RHandler(BaseHTTPRequestHandler):
         key_name = self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
 
         # Taps key {tot} times
-        for i in range(tot): controller.tap(self.repeat[key_name])
+        for _ in range(tot): controller.tap(self.repeat[key_name])
 
     # Text input handling
     def just_text(self):
